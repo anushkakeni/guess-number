@@ -15,7 +15,7 @@ function newGame(){
     resultElement.innerHTML= "Your Guess is : " + input;
     attemptElement.innerHTML= "no.of Attempt : " + attempt;
 
-    // return newGame();
+    return newGame;
 }
 
 function showResult(){
@@ -25,7 +25,14 @@ function showResult(){
     //     attempt--;
 
     // }
-    attempt--;
+    if(attempt >= 1)
+     {
+        attempt--;
+        attemptElement.innerHTML= "no.of Attempt : " + attempt;
+     }
+     else{
+         newGame;
+     }
 
 }
 
