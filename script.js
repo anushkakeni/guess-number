@@ -8,7 +8,7 @@ let attemptElement= document.getElementById("attempt-element");
 
 
 function newGame(){
-    attempt= totalAttempts;
+    totalAttempts= attempt;
     //  original= Math.floor(Math.random() * max-min)+min;
     original =3;
 
@@ -17,7 +17,7 @@ function newGame(){
 
     resultElement.innerHTML= "Your Guess is : " + inputValue ;
     resultStatement.innerHTML= " ";
-    attemptElement.innerHTML= "no.of Attempt : " + attempt;
+    attemptElement.innerHTML= "no.of Attempt : " + totalAttempts;
 
     return newGame;
 }
@@ -26,39 +26,39 @@ function showResult(){
   
     let inputValue= document.getElementById("inputValue").value ;
 
-    if(inputValue == null)
-    {
-        alert("Enter a number");
-        newGame();
-    }
-    else if(inputValue >= min || inputValue <=max)
-    {
-        alert("Enter a valid number");
-        newGame();
-    }
+    // if(inputValue == null)
+    // {
+    //     alert("Enter a number");
+    //     newGame();
+    // }
+    // else if(inputValue >= min || inputValue <=max)
+    // {
+    //     alert("Enter a valid number");
+    //     newGame();
+    // }
 
     // console.log(inputValue);
+    
     resultElement.innerHTML= "Your Guess is : " + inputValue;
-
+    document.getElementById("inputValue").value = '';
 
 
     if(inputValue == original)
     {
         alert("YOU GOT THE NUMBER");
-        newGame();
+         newGame();
     }
     else{
-
         resultStatement.innerHTML= "Your Guess is wrong ";
-
     }
 
-    if(attempt >= 1)
+    if(attempt > 1)
      {
         attempt--;
-        attemptElement.innerHTML= "no.of Attempt : " + attempt;    
+        attemptElement.innerHTML= "no.of Attempt : " + totalAttempts;    
      }
      else{
+        alert("Your attempts ended!!! START NEW GAME");
          newGame();
      }
 
